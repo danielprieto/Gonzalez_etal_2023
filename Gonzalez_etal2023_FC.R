@@ -106,17 +106,6 @@ xyplot(`BL1.A` ~ `VL1.A`, data = filtset1, filter=dposFilt, smooth=F,
        stats = T, xlab="CFP-A", ylab="YFP-A")#Plot gate
 #
 FRETposFilt <- rangeGate(Doublepos, "VL2.A", plot=T, refLine=0)#Define data-driven gate FRET+
-########################################
-#Evaluate double positives by quadrants#
-########################################
-qg <- quadrantGate(sing, c("VL1.A", "BL1.A"), plot=F, sd = c(-2.5, -0.5))#Create quadrant gate
-qfs <- split(sing, qg)#split quadrant data
-xyplot(`BL1.A` ~ `VL1.A`, data = filtset1, filter=qg, smooth=F, 
-       par.settings = list(panel.background=list(col="transparent"), 
-                           axis.text=list(col="black"), strip.border=list(col="black"), 
-                           axis.line=list(col="black"), strip.background=list(col="transparent")), 
-       xlim=c(0, 4), ylim=c(0, 3), stats = F)#Plot gate
-
 #################################
 #FRET-positive counting filter  #
 #################################
